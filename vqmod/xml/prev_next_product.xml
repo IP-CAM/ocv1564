@@ -1,0 +1,120 @@
+<modification>
+	<id>Prev and Next product</id>
+	<version>1.0.0</version>
+	<vqmver>2.1.2</vqmver>
+	<author>LeorLindel</author>
+	<file name="catalog/model/catalog/product.php">
+        <operation>
+            <search position="after"><![CDATA[
+		class ModelCatalogProduct extends Model {
+            ]]></search>
+            <add><![CDATA[
+	public function isExistProduct($product_id, $category_id ,$action) {
+		$query = $this->db->query("SELECT max(product_id) as max_id, min(product_id) as min_id, count(*) as total FROM " . DB_PREFIX . "product_to_category WHERE category_id='" . (int)$category_id . "'");
+		$result_info = $query->row;
+		if ($product_id > $result_info['max_id'] || $product_id < $result_info['min_id']) {
+			return false;
+		}
+		$query = $this->db->query("SELECT product_id FROM " . DB_PREFIX . "product_to_category WHERE category_id='" . (int)$category_id . "' order by product_id asc");
+		$i = 1;
+		foreach ($query->rows as $result) {
+			if ($result['product_id'] == $product_id) {
+				$list = array(
+					'total'	=> $result_info['total'],
+					'num'	=> $i,
+					'product_id' => $product_id
+				);
+				return $list;
+			}
+			$i++;
+		}
+		if ($action == "next") {
+			return $this->isExistProduct($product_id+1, $category_id, $action);
+		} else {
+			return $this->isExistProduct($product_id-1, $category_id, $action);
+		}
+	}
+	
+	public function getParentCategory($category_id) {
+		$query = $this->db->query("SELECT parent_id FROM " . DB_PREFIX . "category WHERE category_id='" . (int)$category_id . "' AND parent_id != 0");
+		
+		if (!$query->row) {
+			$query = $this->db->query("SELECT name,category_id FROM " . DB_PREFIX . "category_description WHERE category_id='" . (int)$category_id . "' AND language_id = '" . (int)$this->config->get('config_language_id') . "'");
+			return $query->row;
+		} else {
+			$category_id = $query->row['parent_id'];
+			return $this->getParentCategory($category_id);
+		}
+	}
+
+            ]]></add>
+        </operation>
+	</file>
+	
+	<file name="catalog/controller/product/product.php">
+        <operation>
+            <search position="before"><![CDATA[
+			$this->data['text_select'] = $this->language->get('text_select');
+            ]]></search>
+            <add><![CDATA[
+            
+			$this->data['categories'] = array();
+			$categories = $this->model_catalog_product->getCategories($product_id);
+			
+			$category_info = $this->model_catalog_product->getParentCategory($categories[0]['category_id']);
+			$this->data['view_all'] = $this->url->link('product/category', 'path=' . $category_info['category_id']);
+			$this->data['category_title'] = $category_info['name'];
+			$this->data['product_list'] = array();
+			$flag =  $this->model_catalog_product->isExistProduct($product_id+1, $category_info['category_id'], "next");
+			
+			if ($flag) {
+				$this->data['next_url'] = $this->url->link('product/product', 'product_id=' . $flag['product_id']);
+				$this->data['next_text']= true;
+				$this->data['product_list'] = array(
+					'total'	=> $flag['total'],
+					'num'	=> $flag['num'] - 1
+				);
+			} else {
+				$this->data['next_url'] = '';
+				$this->data['next_text']= '';
+			}
+			
+			$flag =  $this->model_catalog_product->isExistProduct($product_id-1, $category_info['category_id'], "prev");
+			
+			if ($flag) {
+				$this->data['prev_url'] = $this->url->link('product/product', 'product_id=' .  $flag['product_id']);
+				$this->data['prev_text']= true;
+				$this->data['product_list'] = array(
+					'total'	=> $flag['total'],
+					'num'	=> $flag['num'] + 1
+				);
+			} else {
+				$this->data['prev_url'] = '';
+				$this->data['prev_text']= null;
+			}
+            ]]></add>
+        </operation>
+	</file>
+
+	<file name="catalog/view/theme/*/template/product/product.tpl">
+        <operation>
+            <search position="after" offset="1"><![CDATA[
+            <div class="review">
+            ]]></search>
+            <add><![CDATA[
+	<div class="pager">
+	  <?php if ($prev_text) { ?>
+		<a class="button" href="<?php echo $prev_url; ?>"><span>Previous</span></a> ||
+      <?php } ?>
+	    <a class="button" title="<?php echo $category_title; ?>" href="<?php print $view_all; ?>"><span>Back to <?php echo $category_title; ?></span></a>
+	  <?php if ($next_text) { ?>
+		|| <a class="button" href="<?php echo $next_url; ?>"><span>Next</span></a>
+      <?php } ?>
+	  <?php if ($product_list) { ?>
+		&nbsp; Product <?php echo $product_list['num']; ?>/<?php echo $product_list['total']; ?>
+      <?php } ?>
+	</div>
+            ]]></add>
+        </operation>
+	</file>
+</modification>

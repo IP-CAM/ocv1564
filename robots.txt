@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /*?page=1
+Disallow: /common/sign_up
+Disallow: /index.php?route=common/home

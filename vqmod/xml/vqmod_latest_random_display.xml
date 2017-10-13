@@ -1,0 +1,26 @@
+<modification>
+	<id>vQmod: Latest Random Display</id>
+	<version>Latest Random Display for OpenCart V1.5.3.X</version>
+	<vqmver>2.1.7</vqmver>
+	<author>ethan_service</author>
+	<file name="catalog/controller/module/latest.php">
+        <operation>
+            <search position="replace"><![CDATA[
+			'limit' => $setting['limit']
+            ]]></search>
+            <add><![CDATA[
+          'limit' => ($setting['limit'] * 50)
+            ]]></add>
+        </operation>
+		<operation>
+            <search position="after"><![CDATA[
+			$results = $this->model_catalog_product->getProducts($data);
+            ]]></search>
+            <add><![CDATA[
+        srand((float)microtime() * 1000000);
+		shuffle($results);
+		$results = array_slice($results, 0, $setting['limit']);
+            ]]></add>
+        </operation>
+	</file>
+</modification>

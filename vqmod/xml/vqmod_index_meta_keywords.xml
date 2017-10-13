@@ -1,0 +1,61 @@
+<modification>
+	<id>vQmod: Index Show Meta Tag Keywords</id>
+	<version>Meta Tag Keywords for OpenCart  V1.5.1.X , V1.5.2.X , V1.5.3.X , V1.5.4.X</version>
+	<vqmver>2.1.7</vqmver>
+	<author>OpenCartChina - http://www.opencartchina.com</author>
+	<file name="catalog/controller/common/home.php">
+        <operation>
+            <search position="after"><![CDATA[
+            $this->document->setDescription($this->config->get('config_meta_description'));
+            ]]></search>
+            <add><![CDATA[
+			$this->document->setKeywords($this->config->get('config_meta_keywords'));
+            ]]></add>
+        </operation>
+	</file>
+	<file name="admin/view/template/setting/setting.tpl">
+        <operation>
+            <search position="after"><![CDATA[
+            <td><textarea name="config_meta_description" cols="40" rows="5"><?php echo $config_meta_description; ?></textarea></td>
+            ]]></search>
+            <add><![CDATA[
+			<tr>
+              <td><?php echo $entry_meta_keywords; ?></td>
+              <td><textarea name="config_meta_keywords" cols="40" rows="5"><?php echo $config_meta_keywords; ?></textarea></td>
+            </tr>
+            ]]></add>
+        </operation>
+	</file>
+	<file name="admin/controller/setting/setting.php">
+        <operation>
+            <search position="after"><![CDATA[
+            $this->data['entry_meta_description'] = $this->language->get('entry_meta_description');
+            ]]></search>
+            <add><![CDATA[
+            $this->data['entry_meta_keywords'] = $this->language->get('entry_meta_keywords');
+            ]]></add>
+        </operation>
+		<operation>
+            <search position="before"><![CDATA[
+            if (isset($this->request->post['config_layout_id'])) {
+            ]]></search>
+            <add><![CDATA[
+            if (isset($this->request->post['config_meta_keywords'])) {
+			$this->data['config_meta_keywords'] = $this->request->post['config_meta_keywords'];
+		} else {
+			$this->data['config_meta_keywords'] = $this->config->get('config_meta_keywords');
+		}
+            ]]></add>
+        </operation>	
+	</file>
+	<file name="admin/language/english/setting/setting.php">
+        <operation>
+            <search position="before"><![CDATA[
+			$_['entry_meta_description']       = 'Meta Tag Description:';
+            ]]></search>
+            <add><![CDATA[
+            $_['entry_meta_keywords']       = 'Meta Tag Keywords:<br /><span class="help">comma separated</span>';
+            ]]></add>
+        </operation>
+	</file>
+</modification>
