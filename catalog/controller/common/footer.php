@@ -31,6 +31,7 @@ class ControllerCommonFooter extends Controller {
 			}
 		}
 
+        $this->data['home'] = $this->url->link('common/home');
 		$this->data['contact'] = $this->url->link('information/contact');
 		$this->data['return'] = $this->url->link('account/return/insert', '', 'SSL');
 		$this->data['sitemap'] = $this->url->link('information/sitemap');
@@ -43,7 +44,7 @@ class ControllerCommonFooter extends Controller {
 		$this->data['wishlist'] = $this->url->link('account/wishlist', '', 'SSL');
 		$this->data['newsletter'] = $this->url->link('account/newsletter', '', 'SSL');		
 
-		$this->data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));
+		$this->data['powered'] = sprintf($this->language->get('text_powered'),$this->data['home'], $this->config->get('config_name'), date('Y', time()));
 
 		// Whos Online
 		if ($this->config->get('config_customer_online')) {

@@ -18,7 +18,7 @@ class ControllerModuleLatest extends Controller {
 			'order' => 'DESC',
 			'start' => 0,
 			
-          'limit' => ($setting['limit'] * 50)
+          'limit' => ($setting['limit'] * 100)
             
 		);
 

@@ -15,6 +15,6 @@ $_['text_order']        = 'Order History';
 $_['text_wishlist']     = 'Wish List';
 $_['text_newsletter']   = 'Newsletter';
 
-			$_['text_powered']      = 'Powered By <a href="/">%s</a> &copy; %s';
+			$_['text_powered']      = 'Powered By <a href="%s">%s</a> &copy; %s';
             
 ?>

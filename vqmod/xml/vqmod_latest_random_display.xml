@@ -9,7 +9,7 @@
 			'limit' => $setting['limit']
             ]]></search>
             <add><![CDATA[
-          'limit' => ($setting['limit'] * 50)
+          'limit' => ($setting['limit'] * 100)
             ]]></add>
         </operation>
 		<operation>

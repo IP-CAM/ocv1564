@@ -414,7 +414,7 @@ $('#button-cart').bind('click', function() {
 					
 				$('#cart-total').html(json['total']);
 
-                window.location.href="index.php?route=checkout/cart";
+                window.location.href="<?php echo $breadcrumbs[0]['href']; ?>index.php?route=checkout/cart";
 
                 //$('html, body').animate({ scrollTop: 0 }, 'slow');
 			}	
