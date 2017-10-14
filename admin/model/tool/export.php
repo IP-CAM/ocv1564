@@ -318,6 +318,7 @@ class ModelToolExport extends Model {
 			$viewed = $product['viewed'];
 			$productDescription = $database->escape($product['description']);
 			$stockStatusId = $product['stock_status_id'];
+            $meta_title = $database->escape($product['meta_title']);
 			$meta_description = $database->escape($product['meta_description']);
 			$length = $product['length'];
 			$width = $product['width'];
@@ -351,8 +352,8 @@ class ModelToolExport extends Model {
 			$sql .= ($dateAvailable=='NOW()') ? "$dateAvailable," : "'$dateAvailable',";
 			$sql .= "$weight,$weightClassId,$status,";
 			$sql .= "$taxClassId,$viewed,$length,$width,$height,'$lengthClassId','$sort_order','$subtract','$minimum');";
-			$sql2 = "INSERT INTO `".DB_PREFIX."product_description` (`product_id`,`language_id`,`name`,`description`,`meta_description`,`meta_keyword`,`tag`) VALUES ";
-			$sql2 .= "($productId,$languageId,'$productName','$productDescription','$meta_description','$meta_keywords','$tags');";
+			$sql2 = "INSERT INTO `".DB_PREFIX."product_description` (`product_id`,`language_id`,`name`,`description`,`meta_title`,`meta_description`,`meta_keyword`,`tag`) VALUES ";
+			$sql2 .= "($productId,$languageId,'$productName','$productDescription','$meta_title','$meta_description','$meta_keywords','$tags');";
 			$database->query($sql);
 			$database->query($sql2);
 			if (count($categories) > 0) {
@@ -492,6 +493,8 @@ class ModelToolExport extends Model {
 			$keyword = $this->getCell($data,$i,$j++);
 			$description = $this->getCell($data,$i,$j++);
 			$description = htmlentities( $description, ENT_QUOTES, $this->detect_encoding($description) );
+            $meta_title = $this->getCell($data,$i,$j++);
+            $meta_title = htmlentities( $meta_title, ENT_QUOTES, $this->detect_encoding($meta_title) );
 			$meta_description = $this->getCell($data,$i,$j++);
 			$meta_description = htmlentities( $meta_description, ENT_QUOTES, $this->detect_encoding($meta_description) );
 			$meta_keywords = $this->getCell($data,$i,$j++);
@@ -531,6 +534,7 @@ class ModelToolExport extends Model {
 			$product['language_id'] = $languageId;
 			$product['description'] = $description;
 			$product['stock_status_id'] = $stockStatusId;
+            $product['meta_title'] = $meta_title;
 			$product['meta_description'] = $meta_description;
 			$product['length'] = $length;
 			$product['width'] = $width;
@@ -603,6 +607,7 @@ class ModelToolExport extends Model {
 			$languageId = $category['language_id'];
 			$name = $database->escape($category['name']);
 			$description = $database->escape($category['description']);
+            $meta_title = $database->escape($category['meta_title']);
 			$meta_description = $database->escape($category['meta_description']);
 			$meta_keywords = $database->escape($category['meta_keywords']);
 			$keyword = $database->escape($category['seo_keyword']);
@@ -616,8 +621,8 @@ class ModelToolExport extends Model {
 			$sql2 .= ($dateModified=='NOW()') ? "$dateModified," : "'$dateModified',";
 			$sql2 .= " $status);";
 			$database->query( $sql2 );
-			$sql3 = "INSERT INTO `".DB_PREFIX."category_description` (`category_id`, `language_id`, `name`, `description`, `meta_description`, `meta_keyword`) VALUES ";
-			$sql3 .= "( $categoryId, $languageId, '$name', '$description', '$meta_description', '$meta_keywords' );";
+			$sql3 = "INSERT INTO `".DB_PREFIX."category_description` (`category_id`, `language_id`, `name`, `description`, `meta_title`, `meta_description`, `meta_keyword`) VALUES ";
+			$sql3 .= "( $categoryId, $languageId, '$name', '$description', '$meta_title', '$meta_description', '$meta_keywords' );";
 			$database->query( $sql3 );
 			if ($keyword) {
 				$sql5 = "INSERT INTO `".DB_PREFIX."url_alias` (`query`,`keyword`) VALUES ('category_id=$categoryId','$keyword');";
@@ -708,6 +713,8 @@ class ModelToolExport extends Model {
 			$keyword = $this->getCell($data,$i,$j++);
 			$description = $this->getCell($data,$i,$j++);
 			$description = htmlentities( $description, ENT_QUOTES, $this->detect_encoding($description) );
+            $meta_title = $this->getCell($data,$i,$j++);
+            $meta_title = htmlentities( $meta_title, ENT_QUOTES, $this->detect_encoding($meta_title) );
 			$meta_description = $this->getCell($data,$i,$j++);
 			$meta_description = htmlentities( $meta_description, ENT_QUOTES, $this->detect_encoding($meta_description) );
 			$meta_keywords = $this->getCell($data,$i,$j++);
@@ -727,6 +734,7 @@ class ModelToolExport extends Model {
 			$category['top'] = $top;
 			$category['columns'] = $columns;
 			$category['description'] = $description;
+            $category['meta_title'] = $meta_title;
 			$category['meta_description'] = $meta_description;
 			$category['meta_keywords'] = $meta_keywords;
 			$category['seo_keyword'] = $keyword;
@@ -1560,7 +1568,7 @@ class ModelToolExport extends Model {
 
 
 	protected function expectedCategoriesHeading() {
-		return array( "category_id", "parent_id", "name", "top", "columns", "sort_order", "image_name", "date_added", "date_modified", "language_id", "seo_keyword", "description", "meta_description", "meta_keywords", "store_ids", "layout", "status\nenabled" );
+		return array( "category_id", "parent_id", "name", "top", "columns", "sort_order", "image_name", "date_added", "date_modified", "language_id", "seo_keyword", "description", "meta_title", "meta_description", "meta_keywords", "store_ids", "layout", "status\nenabled" );
 	}
 
 
@@ -1573,7 +1581,7 @@ class ModelToolExport extends Model {
 
 
 	protected function expectedProductsHeading() {
-		return array( "product_id", "name", "categories", "sku", "upc", "ean", "jan", "isbn", "mpn", "location", "quantity", "model", "manufacturer", "image_name", "requires\nshipping", "price", "points", "date_added", "date_modified", "date_available", "weight", "unit", "length", "width", "height", "length\nunit", "status\nenabled", "tax_class_id", "viewed", "language_id", "seo_keyword", "description", "meta_description", "meta_keywords", "stock_status_id", "store_ids", "layout", "related_ids", "tags", "sort_order", "subtract", "minimum" );
+		return array( "product_id", "name", "categories", "sku", "upc", "ean", "jan", "isbn", "mpn", "location", "quantity", "model", "manufacturer", "image_name", "requires\nshipping", "price", "points", "date_added", "date_modified", "date_available", "weight", "unit", "length", "width", "height", "length\nunit", "status\nenabled", "tax_class_id", "viewed", "language_id", "seo_keyword", "description", "meta_title", "meta_description", "meta_keywords", "stock_status_id", "store_ids", "layout", "related_ids", "tags", "sort_order", "subtract", "minimum" );
 	}
 
 
@@ -1873,6 +1881,7 @@ class ModelToolExport extends Model {
 		$worksheet->getColumnDimensionByColumn($j++)->setWidth(max(strlen('language_id'),2)+1);
 		$worksheet->getColumnDimensionByColumn($j++)->setWidth(max(strlen('seo_keyword'),16)+1);
 		$worksheet->getColumnDimensionByColumn($j++)->setWidth(max(strlen('description'),32)+1);
+        $worksheet->getColumnDimensionByColumn($j++)->setWidth(max(strlen('meta_title'),32)+1);
 		$worksheet->getColumnDimensionByColumn($j++)->setWidth(max(strlen('meta_description'),32)+1);
 		$worksheet->getColumnDimensionByColumn($j++)->setWidth(max(strlen('meta_keywords'),32)+1);
 		$worksheet->getColumnDimensionByColumn($j++)->setWidth(max(strlen('store_ids'),16)+1);
@@ -1894,6 +1903,7 @@ class ModelToolExport extends Model {
 		$this->setCell( $worksheet, $i, $j++, 'language_id', $boxFormat );
 		$this->setCell( $worksheet, $i, $j++, 'seo_keyword', $boxFormat );
 		$this->setCell( $worksheet, $i, $j++, 'description', $boxFormat );
+        $this->setCell( $worksheet, $i, $j++, 'meta_title', $boxFormat );
 		$this->setCell( $worksheet, $i, $j++, 'meta_description', $boxFormat );
 		$this->setCell( $worksheet, $i, $j++, 'meta_keywords', $boxFormat );
 		$this->setCell( $worksheet, $i, $j++, 'store_ids', $boxFormat );
@@ -1921,6 +1931,7 @@ class ModelToolExport extends Model {
 			$this->setCell( $worksheet, $i, $j++, $row['language_id'] );
 			$this->setCell( $worksheet, $i, $j++, ($row['keyword']) ? $row['keyword'] : '' );
 			$this->setCell( $worksheet, $i, $j++, html_entity_decode($row['description'],ENT_QUOTES,'UTF-8') );
+            $this->setCell( $worksheet, $i, $j++, html_entity_decode($row['meta_title'],ENT_QUOTES,'UTF-8') );
 			$this->setCell( $worksheet, $i, $j++, html_entity_decode($row['meta_description'],ENT_QUOTES,'UTF-8') );
 			$this->setCell( $worksheet, $i, $j++, html_entity_decode($row['meta_keyword'],ENT_QUOTES,'UTF-8') );
 			$storeIdList = '';
@@ -2016,6 +2027,7 @@ class ModelToolExport extends Model {
 		$query .= "  pd.language_id,";
 		$query .= "  ua.keyword,";
 		$query .= "  pd.description, ";
+        $query .= "  pd.meta_title, ";
 		$query .= "  pd.meta_description, ";
 		$query .= "  pd.meta_keyword, ";
 		$query .= "  pd.tag, ";
@@ -2078,6 +2090,7 @@ class ModelToolExport extends Model {
 		$worksheet->getColumnDimensionByColumn($j++)->setWidth(max(strlen('language_id'),2)+1);
 		$worksheet->getColumnDimensionByColumn($j++)->setWidth(max(strlen('seo_keyword'),16)+1);
 		$worksheet->getColumnDimensionByColumn($j++)->setWidth(max(strlen('description'),32)+1,$textFormat);
+        $worksheet->getColumnDimensionByColumn($j++)->setWidth(max(strlen('meta_title'),32)+1,$textFormat);
 		$worksheet->getColumnDimensionByColumn($j++)->setWidth(max(strlen('meta_description'),32)+1,$textFormat);
 		$worksheet->getColumnDimensionByColumn($j++)->setWidth(max(strlen('meta_keywords'),32)+1,$textFormat);
 		$worksheet->getColumnDimensionByColumn($j++)->setWidth(max(strlen('stock_status_id'),3)+1);
@@ -2124,6 +2137,7 @@ class ModelToolExport extends Model {
 		$this->setCell( $worksheet, $i, $j++, 'language_id', $boxFormat );
 		$this->setCell( $worksheet, $i, $j++, 'seo_keyword', $boxFormat );
 		$this->setCell( $worksheet, $i, $j++, 'description', $boxFormat );
+        $this->setCell( $worksheet, $i, $j++, 'meta_title', $boxFormat );
 		$this->setCell( $worksheet, $i, $j++, 'meta_description', $boxFormat );
 		$this->setCell( $worksheet, $i, $j++, 'meta_keywords', $boxFormat );
 		$this->setCell( $worksheet, $i, $j++, 'stock_status_id', $boxFormat );
@@ -2177,6 +2191,7 @@ class ModelToolExport extends Model {
 			$this->setCell( $worksheet, $i, $j++, $row['language_id'] );
 			$this->setCell( $worksheet, $i, $j++, ($row['keyword']) ? $row['keyword'] : '' );
 			$this->setCell( $worksheet, $i, $j++, html_entity_decode($row['description'],ENT_QUOTES,'UTF-8'), $textFormat, TRUE );
+            $this->setCell( $worksheet, $i, $j++, html_entity_decode($row['meta_title'],ENT_QUOTES,'UTF-8'), $textFormat );
 			$this->setCell( $worksheet, $i, $j++, html_entity_decode($row['meta_description'],ENT_QUOTES,'UTF-8'), $textFormat );
 			$this->setCell( $worksheet, $i, $j++, html_entity_decode($row['meta_keyword'],ENT_QUOTES,'UTF-8'), $textFormat );
 			$this->setCell( $worksheet, $i, $j++, $row['stock_status_id'] );

@@ -5,7 +5,6 @@
     <?php echo $breadcrumb['separator']; ?><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
     <?php } ?>
   </div>
-  <h1><?php echo $heading_title; ?></h1>
   <div class="product-info">
     <?php if ($thumb || $images) { ?>
     <div class="left">
@@ -22,6 +21,7 @@
     </div>
     <?php } ?>
     <div class="right">
+      <h1><?php echo $heading_title; ?></h1>
       <div class="description">
         <?php if ($manufacturer) { ?>
         <span><?php echo $text_manufacturer; ?></span> <a href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a><br />
@@ -224,9 +224,6 @@
           <input type="hidden" name="product_id" size="2" value="<?php echo $product_id; ?>" />
           &nbsp;
           <input type="button" value="<?php echo $button_cart; ?>" id="button-cart" class="button" />
-          <span>&nbsp;&nbsp;<?php echo $text_or; ?>&nbsp;&nbsp;</span>
-          <span class="links"><a onclick="addToWishList('<?php echo $product_id; ?>');"><?php echo $button_wishlist; ?></a><br />
-            <a onclick="addToCompare('<?php echo $product_id; ?>');"><?php echo $button_compare; ?></a></span>
         </div>
         <?php if ($minimum > 1) { ?>
         <div class="minimum"><?php echo $text_minimum; ?></div>
@@ -235,11 +232,6 @@
       <?php if ($review_status) { ?>
       <div class="review">
         <div><img src="catalog/view/theme/default/image/stars-<?php echo $rating; ?>.png" alt="<?php echo $reviews; ?>" />&nbsp;&nbsp;<a onclick="$('a[href=\'#tab-review\']').trigger('click');"><?php echo $reviews; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('a[href=\'#tab-review\']').trigger('click');"><?php echo $text_write; ?></a></div>
-        <div class="share"><!-- AddThis Button BEGIN -->
-          <div class="addthis_default_style"><a class="addthis_button_compact"><?php echo $text_share; ?></a> <a class="addthis_button_email"></a><a class="addthis_button_print"></a> <a class="addthis_button_facebook"></a> <a class="addthis_button_twitter"></a></div>
-          <script type="text/javascript" src="//s7.addthis.com/js/250/addthis_widget.js"></script> 
-          <!-- AddThis Button END --> 
-        </div>
       </div>
       <?php } ?>
     </div>
@@ -250,9 +242,6 @@
     <?php } ?>
     <?php if ($review_status) { ?>
     <a href="#tab-review"><?php echo $tab_review; ?></a>
-    <?php } ?>
-    <?php if ($products) { ?>
-    <a href="#tab-related"><?php echo $tab_related; ?> (<?php echo count($products); ?>)</a>
     <?php } ?>
   </div>
   <div id="tab-description" class="tab-content"><?php echo $description; ?></div>
@@ -312,7 +301,10 @@
   </div>
   <?php } ?>
   <?php if ($products) { ?>
-  <div id="tab-related" class="tab-content">
+  <div class="title_related"><?php echo $tab_related; ?> (<?php echo count($products); ?>)</div>
+  <?php } ?>
+  <?php if ($products) { ?>
+  <div id="tab-related">
     <div class="box-product">
       <?php foreach ($products as $product) { ?>
       <div>
@@ -401,13 +393,16 @@ $('#button-cart').bind('click', function() {
 			} 
 			
 			if (json['success']) {
+				/*
 				$('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
 					
-				$('.success').fadeIn('slow');
+				$('.success').fadeIn('slow');*/
 					
 				$('#cart-total').html(json['total']);
-				
-				$('html, body').animate({ scrollTop: 0 }, 'slow'); 
+
+                window.location.href="index.php?route=checkout/cart";
+
+                //$('html, body').animate({ scrollTop: 0 }, 'slow');
 			}	
 		}
 	});

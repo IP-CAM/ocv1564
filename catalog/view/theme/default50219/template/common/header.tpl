@@ -63,12 +63,12 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
   </div>
   <div class="links">
     <?php if (!$logged) { ?>
-    <a href="index.php?route=account/login">Login</a>
-    <a href="index.php?route=account/register">Create an account</a>
+    <a rel="nofollow" href="index.php?route=account/login">Login</a>
+    <a rel="nofollow" href="index.php?route=account/register">Create an account</a>
     <?php } else { ?>
-    <a href="index.php?route=account/logout">Logout</a>
+    <a rel="nofollow" href="index.php?route=account/logout">Logout</a>
     <?php } ?>
-    <a href="<?php echo $account; ?>"><?php echo $text_account; ?></a><a href="<?php echo $shopping_cart; ?>"><?php echo $text_shopping_cart; ?></a><a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a></div>
+    <a rel="nofollow" href="<?php echo $account; ?>"><?php echo $text_account; ?></a><a rel="nofollow" href="<?php echo $shopping_cart; ?>"><?php echo $text_shopping_cart; ?></a><a rel="nofollow" href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a></div>
 </div>
 <?php if ($categories) { ?>
 <div id="menu">

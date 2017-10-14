@@ -147,7 +147,7 @@ function display(view) {
 			$(element).html(html);
 		});		
 		
-		$('.display').html('<b><?php echo $text_display; ?></b> <?php echo $text_list; ?> <b>/</b> <a onclick="display(\'grid\');"><?php echo $text_grid; ?></a>');
+		$('.display').html('<b><?php echo $text_display; ?></b> <a onclick="display(\'grid\');"><?php echo $text_grid; ?></a> <b>/</b> <?php echo $text_list; ?>');
 		
 		$.totalStorage('display', 'list'); 
 	} else {
@@ -184,7 +184,7 @@ function display(view) {
 			$(element).html(html);
 		});	
 					
-		$('.display').html('<b><?php echo $text_display; ?></b> <a onclick="display(\'list\');"><?php echo $text_list; ?></a> <b>/</b> <?php echo $text_grid; ?>');
+		$('.display').html('<b><?php echo $text_display; ?></b> <?php echo $text_grid; ?> <b>/</b> <a onclick="display(\'list\');"><?php echo $text_list; ?></a>');
 		
 		$.totalStorage('display', 'grid');
 	}
@@ -195,7 +195,7 @@ view = $.totalStorage('display');
 if (view) {
 	display(view);
 } else {
-	display('list');
+	display('grid');
 }
 //--></script> 
 <?php echo $footer; ?>

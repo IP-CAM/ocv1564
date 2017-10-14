@@ -99,7 +99,7 @@
 	<file name="catalog/view/theme/*/template/product/product.tpl">
         <operation>
             <search position="after" offset="1"><![CDATA[
-            <div class="review">
+            <div class="product-info">
             ]]></search>
             <add><![CDATA[
 	<div class="pager">

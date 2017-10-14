@@ -1,0 +1,59 @@
+---------- Date: 2017-10-14 12:26:01 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=product/product&amp;product_id=28
+VQMod::_parseMods - DOM UNABLE TO LOAD: F:\WWW\ocv1564\vqmod/xml/export.xml
+VQMod::_parseMods - DOM UNABLE TO LOAD: F:\WWW\ocv1564\vqmod/xml/prev_next_product.xml
+VQMod::_parseMods - DOM UNABLE TO LOAD: F:\WWW\ocv1564\vqmod/xml/vqmod_category_meta_title.xml
+VQMod::_parseMods - DOM UNABLE TO LOAD: F:\WWW\ocv1564\vqmod/xml/vqmod_index_google_sitemap.xml
+VQMod::_parseMods - DOM UNABLE TO LOAD: F:\WWW\ocv1564\vqmod/xml/vqmod_index_meta_keywords.xml
+VQMod::_parseMods - DOM UNABLE TO LOAD: F:\WWW\ocv1564\vqmod/xml/vqmod_latest_random_display.xml
+VQMod::_parseMods - DOM UNABLE TO LOAD: F:\WWW\ocv1564\vqmod/xml/vqmod_opencart.xml
+VQMod::_parseMods - DOM UNABLE TO LOAD: F:\WWW\ocv1564\vqmod/xml/vqmod_powered_by.xml
+VQMod::_parseMods - DOM UNABLE TO LOAD: F:\WWW\ocv1564\vqmod/xml/vqmod_product_meta_title.xml
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-14 12:32:03 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=product/product&amp;product_id=28
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/vqmod_product_meta_title.xml
+   id        : vQmod: Product Show Meta Tag Title
+   version   : Meta Tag Title for OpenCart V1.5.3.X
+   vqmver    : 2.1.7
+   author    : ethan_service
+
+File Name    : catalog/controller/product/product.php(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $this->document->setTitle($product_info['name']);
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-14 12:32:18 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=product/product&amp;product_id=28
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/vqmod_product_meta_title.xml
+   id        : vQmod: Product Show Meta Tag Title
+   version   : Meta Tag Title for OpenCart V1.5.3.X
+   vqmver    : 2.1.7
+   author    : ethan_service
+
+File Name    : catalog/controller/product/product.php(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $this->document->setTitle($product_info['name']);
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-14 12:32:36 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=product/product&amp;product_id=28
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/vqmod_product_meta_title.xml
+   id        : vQmod: Product Show Meta Tag Title
+   version   : Meta Tag Title for OpenCart V1.5.3.X
+   vqmver    : 2.1.7
+   author    : ethan_service
+
+File Name    : catalog/controller/product/product.php(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $this->document->setTitle($product_info['name']);
+
+----------------------------------------------------------------------
+
+

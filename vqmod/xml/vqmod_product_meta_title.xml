@@ -1,0 +1,49 @@
+<modification>
+	<id>vQmod: Product Show Meta Tag Title</id>
+	<version>Meta Tag Title for OpenCart V1.5.3.X</version>
+	<vqmver>2.1.7</vqmver>
+	<author>ethan_service</author>
+	<file name="catalog/controller/product/product.php">
+        <operation>
+            <search position="replace"><![CDATA[
+			$this->document->setTitle($product_info['name']);
+            ]]></search>
+            <add><![CDATA[
+           $this->document->setTitle(empty($product_info['meta_title'])?$product_info['name']:$product_info['meta_title']);
+            ]]></add>
+        </operation>
+	</file>
+	<file name="admin/view/template/catalog/product_form.tpl">
+        <operation>
+            <search position="before" offset="1"><![CDATA[
+			<td><?php echo $entry_meta_description; ?></td>
+            ]]></search>
+            <add><![CDATA[
+           <tr>
+                <td>Meta Tag Title:</td>
+                <td><textarea name="product_description[<?php echo $language['language_id']; ?>][meta_title]" cols="40" rows="5"><?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['meta_title'] : ''; ?></textarea></td>
+              </tr>
+            ]]></add>
+        </operation>
+	</file>
+	<file name="admin/model/catalog/product.php">
+        <operation>
+            <search position="replace" offset="2"><![CDATA[
+			foreach ($data['product_description'] as $language_id => $value) {
+			]]></search>
+            <add><![CDATA[
+			foreach ($data['product_description'] as $language_id => $value) {
+			$this->db->query("INSERT INTO " . DB_PREFIX . "product_description SET product_id = '" . (int)$product_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "',meta_title = '" . $this->db->escape($value['meta_title']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', description = '" . $this->db->escape($value['description']) . "'");
+		}
+		]]></add>
+        </operation>
+		 <operation>
+            <search position="after"><![CDATA[
+			'meta_keyword'     => $result['meta_keyword'],
+			]]></search>
+            <add><![CDATA[
+			'meta_title'     => $result['meta_title'],
+			]]></add>
+        </operation>
+	</file>
+</modification>
