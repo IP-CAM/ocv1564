@@ -16,7 +16,8 @@
 <?php foreach ($links as $link) { ?>
 <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
 <?php } ?>
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/default50219/stylesheet/stylesheet.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/<?php echo $template; ?>/stylesheet/stylesheet.css" />
+  <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <?php foreach ($styles as $style) { ?>
 <link rel="<?php echo $style['rel']; ?>" type="text/css" href="<?php echo $style['href']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
@@ -28,10 +29,10 @@
 <script type="text/javascript" src="<?php echo $script; ?>"></script>
 <?php } ?>
 <!--[if IE 7]> 
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/default50219/stylesheet/ie7.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/<?php echo $template; ?>/stylesheet/ie7.css" />
 <![endif]-->
 <!--[if lt IE 7]>
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/default50219/stylesheet/ie6.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/<?php echo $template; ?>/stylesheet/ie6.css" />
 <script type="text/javascript" src="catalog/view/javascript/DD_belatedPNG_0.0.8a-min.js"></script>
 <script type="text/javascript">
 DD_belatedPNG.fix('#logo img');
@@ -63,10 +64,11 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
   </div>
   <div class="links">
     <?php if (!$logged) { ?>
-    <a rel="nofollow" href="index.php?route=account/login">Login</a>
-    <a rel="nofollow" href="index.php?route=account/register">Create an account</a>
+    <a rel="nofollow" href="<?php echo $login; ?>">Login</a>
+    <a rel="nofollow" href="<?php echo $register; ?>">Create an account</a>
     <?php } else { ?>
-    <a rel="nofollow" href="index.php?route=account/logout">Logout</a>
+    <a rel="nofollow" href="<?php echo $account; ?>"><?php echo $firstname; ?></a>
+    <a rel="nofollow" href="<?php echo $logout; ?>">Logout</a>
     <?php } ?>
     <a rel="nofollow" href="<?php echo $account; ?>"><?php echo $text_account; ?></a><a rel="nofollow" href="<?php echo $shopping_cart; ?>"><?php echo $text_shopping_cart; ?></a><a rel="nofollow" href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a></div>
 </div>
@@ -96,7 +98,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 <?php } ?>
 <?php if ($error) { ?>
     
-    <div class="warning"><?php echo $error ?><img src="catalog/view/theme/default50219/image/close.png" alt="" class="close" /></div>
+    <div class="warning"><?php echo $error ?><img src="catalog/view/theme/<?php echo $template; ?>/image/close.png" alt="" class="close" /></div>
     
 <?php } ?>
 <div id="notification"></div>

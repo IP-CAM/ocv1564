@@ -11,6 +11,13 @@ class ControllerFeedGoogleSitemap extends Controller {
             $output .= '<priority>1.0</priority>';
             $output .= '</url>';
 
+
+           $output .= '<url>';
+			$output .= '<loc>' . 'http://' . $_SERVER['SERVER_NAME'] . '</loc>';
+			$output .= '<changefreq>weekly</changefreq>';
+			$output .= '<priority>1.0</priority>';
+			$output .= '</url>';
+            
 			$this->load->model('catalog/product');
 
 			$products = $this->model_catalog_product->getProducts();

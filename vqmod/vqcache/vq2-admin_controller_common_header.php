@@ -104,6 +104,7 @@ class ControllerCommonHeader extends Controller {
 		$this->data['text_weight_class'] = $this->language->get('text_weight_class');
 		$this->data['text_length_class'] = $this->language->get('text_length_class');
 		$this->data['text_zone'] = $this->language->get('text_zone');
+$this->data['text_cachemanager'] = $this->language->get('text_cachemanager');
 		$this->data['text_openbay_extension'] = $this->language->get('text_openbay_extension');
 		$this->data['text_openbay_dashboard'] = $this->language->get('text_openbay_dashboard');
 		$this->data['text_openbay_orders'] = $this->language->get('text_openbay_orders');
@@ -221,6 +222,7 @@ class ControllerCommonHeader extends Controller {
 			$this->data['paypal_express_search'] = $this->url->link('payment/pp_express/search', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['recurring_profile'] = $this->url->link('sale/recurring', 'token=' . $this->session->data['token'], 'SSL');
 
+$this->data['cachemanager'] = $this->url->link('catalog/cachemanager', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['stores'] = array();
 
 			$this->load->model('setting/store');

@@ -1,24 +1,26 @@
 <?php
+$DOMAIN = $_SERVER['HTTP_HOST'];
+$PATH = $_SERVER['DOCUMENT_ROOT'];
 // HTTP
-define('HTTP_SERVER', 'http://www.ocv1564.net/admin/');
-define('HTTP_CATALOG', 'http://www.ocv1564.net/');
+define('HTTP_SERVER', 'http://'.$DOMAIN.'/admin/');
+define('HTTP_CATALOG', 'http://'.$DOMAIN.'/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://www.ocv1564.net/admin/');
-define('HTTPS_CATALOG', 'http://www.ocv1564.net/');
+define('HTTPS_SERVER', 'http://'.$DOMAIN.'/admin/');
+define('HTTPS_CATALOG', 'http://'.$DOMAIN.'/');
 
 // DIR
-define('DIR_APPLICATION', 'F:\WWW\ocv1564/admin/');
-define('DIR_SYSTEM', 'F:\WWW\ocv1564/system/');
-define('DIR_DATABASE', 'F:\WWW\ocv1564/system/database/');
-define('DIR_LANGUAGE', 'F:\WWW\ocv1564/admin/language/');
-define('DIR_TEMPLATE', 'F:\WWW\ocv1564/admin/view/template/');
-define('DIR_CONFIG', 'F:\WWW\ocv1564/system/config/');
-define('DIR_IMAGE', 'F:\WWW\ocv1564/image/');
-define('DIR_CACHE', 'F:\WWW\ocv1564/system/cache/');
-define('DIR_DOWNLOAD', 'F:\WWW\ocv1564/download/');
-define('DIR_LOGS', 'F:\WWW\ocv1564/system/logs/');
-define('DIR_CATALOG', 'F:\WWW\ocv1564/catalog/');
+define('DIR_APPLICATION', $PATH.'/admin/');
+define('DIR_SYSTEM', $PATH.'/system/');
+define('DIR_DATABASE', $PATH.'/system/database/');
+define('DIR_LANGUAGE', $PATH.'/admin/language/');
+define('DIR_TEMPLATE', $PATH.'/admin/view/template/');
+define('DIR_CONFIG', $PATH.'/system/config/');
+define('DIR_IMAGE', $PATH.'/image/');
+define('DIR_CACHE', $PATH.'/system/cache/');
+define('DIR_DOWNLOAD', $PATH.'/download/');
+define('DIR_LOGS', $PATH.'/system/logs/');
+define('DIR_CATALOG', $PATH.'/catalog/');
 
 // DB
 define('DB_DRIVER', 'mysql');

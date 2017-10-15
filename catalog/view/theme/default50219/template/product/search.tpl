@@ -58,7 +58,7 @@
   <h2><?php echo $text_search; ?></h2>
   <?php if ($products) { ?>
   <div class="product-filter">
-    <div class="display"><b><?php echo $text_display; ?></b> <?php echo $text_list; ?> <b>/</b> <a onclick="display('grid');"><?php echo $text_grid; ?></a></div>
+    <div class="display"><b><?php echo $text_display; ?></b> <?php echo $text_grid; ?> <b>/</b> <a onclick="display('list');"><?php echo $text_list; ?></a></div>
     <div class="limit"><?php echo $text_limit; ?>
       <select onchange="location = this.value;">
         <?php foreach ($limits as $limits) { ?>
@@ -83,7 +83,7 @@
     </div>
   </div>
   <div class="product-compare"><a href="<?php echo $compare; ?>" id="compare-total"><?php echo $text_compare; ?></a></div>
-  <div class="product-list">
+  <div class="product-grid">
     <?php foreach ($products as $product) { ?>
     <div>
       <?php if ($product['thumb']) { ?>
@@ -173,8 +173,8 @@ function display(view) {
 		$('.product-list > div').each(function(index, element) {
 			html  = '<div class="right">';
 			html += '  <div class="cart">' + $(element).find('.cart').html() + '</div>';
-			html += '  <div class="wishlist">' + $(element).find('.wishlist').html() + '</div>';
-			html += '  <div class="compare">' + $(element).find('.compare').html() + '</div>';
+			/*html += '  <div class="wishlist">' + $(element).find('.wishlist').html() + '</div>';
+			html += '  <div class="compare">' + $(element).find('.compare').html() + '</div>';*/
 			html += '</div>';			
 			
 			html += '<div class="left">';
@@ -236,8 +236,8 @@ function display(view) {
 			}
 						
 			html += '<div class="cart">' + $(element).find('.cart').html() + '</div>';
-			html += '<div class="wishlist">' + $(element).find('.wishlist').html() + '</div>';
-			html += '<div class="compare">' + $(element).find('.compare').html() + '</div>';
+			/*html += '<div class="wishlist">' + $(element).find('.wishlist').html() + '</div>';
+			html += '<div class="compare">' + $(element).find('.compare').html() + '</div>';*/
 			
 			$(element).html(html);
 		});	

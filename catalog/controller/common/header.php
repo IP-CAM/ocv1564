@@ -20,7 +20,10 @@ class ControllerCommonHeader extends Controller {
 		$this->data['base'] = $server;
 		$this->data['description'] = $this->document->getDescription();
 		$this->data['keywords'] = $this->document->getKeywords();
-		$this->data['links'] = $this->document->getLinks();	 
+		$this->data['links'] = $this->document->getLinks();
+
+        $this->data['template'] = $this->config->get('config_template');
+
 		$this->data['styles'] = $this->document->getStyles();
 		$this->data['scripts'] = $this->document->getScripts();
 		$this->data['lang'] = $this->language->get('code');
@@ -57,6 +60,11 @@ class ControllerCommonHeader extends Controller {
 		$this->data['account'] = $this->url->link('account/account', '', 'SSL');
 		$this->data['shopping_cart'] = $this->url->link('checkout/cart');
 		$this->data['checkout'] = $this->url->link('checkout/checkout', '', 'SSL');
+
+        $this->data['login'] = $this->url->link('account/login', '', 'SSL');
+        $this->data['register'] = $this->url->link('account/register', '', 'SSL');
+        $this->data['firstname'] = $this->customer->getFirstName();
+        $this->data['logout'] = $this->url->link('account/logout', '', 'SSL');
 
 		// Daniel's robot detector
 		$status = true;
