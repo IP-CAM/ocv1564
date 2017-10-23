@@ -503,6 +503,13 @@ class ModelCatalogProduct extends Model {
 		return $query->rows;
 	}	
 
+
+        public function getCategoriesByProductId($product_id) {
+          $query = $this->db->query("SELECT pc.*, !ISNULL(t1.parent_id) + !ISNULL(t2.parent_id) + !ISNULL(t3.parent_id) + !ISNULL(t4.parent_id) + !ISNULL(t5.parent_id) AS d FROM " . DB_PREFIX . "product_to_category pc LEFT JOIN " . DB_PREFIX . "category t1 ON t1.category_id = pc.category_id LEFT JOIN " . DB_PREFIX . "category t2 ON t1.parent_id = t2.category_id LEFT JOIN " . DB_PREFIX . "category t3 ON t2.parent_id = t3.category_id LEFT JOIN " . DB_PREFIX . "category t4 ON t3.parent_id = t4.category_id LEFT JOIN " . DB_PREFIX . "category t5 ON t4.parent_id = t5.category_id WHERE product_id = '" . (int)$product_id . "' ORDER BY d DESC");
+
+          return $query->rows;
+        }
+      
 	public function getTotalProducts($data = array()) {
 		if ($this->customer->isLogged()) {
 			$customer_group_id = $this->customer->getCustomerGroupId();

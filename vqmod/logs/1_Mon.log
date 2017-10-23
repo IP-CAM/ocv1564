@@ -1,0 +1,336 @@
+---------- Date: 2017-10-23 12:37:48 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /mac
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/beop_all_clean_urls.xml
+   id        : Clean Urls
+   version   : 1.0.7
+   vqmver    : 2.1
+   author    : Werner van Run - beoptimized.nl
+
+File Name    : catalog/controller/common/seo_url.php(4)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-23 12:37:49 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /mac
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/beop_all_clean_urls.xml
+   id        : Clean Urls
+   version   : 1.0.7
+   vqmver    : 2.1
+   author    : Werner van Run - beoptimized.nl
+
+File Name    : catalog/controller/common/seo_url.php(4)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-23 12:37:51 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=common/home
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/beop_all_clean_urls.xml
+   id        : Clean Urls
+   version   : 1.0.7
+   vqmver    : 2.1
+   author    : Werner van Run - beoptimized.nl
+
+File Name    : catalog/controller/common/seo_url.php(4)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-23 12:37:54 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /desktops/mac
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/beop_all_clean_urls.xml
+   id        : Clean Urls
+   version   : 1.0.7
+   vqmver    : 2.1
+   author    : Werner van Run - beoptimized.nl
+
+File Name    : catalog/controller/common/seo_url.php(4)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-23 12:37:59 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /desktops/pc
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/beop_all_clean_urls.xml
+   id        : Clean Urls
+   version   : 1.0.7
+   vqmver    : 2.1
+   author    : Werner van Run - beoptimized.nl
+
+File Name    : catalog/controller/common/seo_url.php(4)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-23 12:38:01 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /desktops
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/beop_all_clean_urls.xml
+   id        : Clean Urls
+   version   : 1.0.7
+   vqmver    : 2.1
+   author    : Werner van Run - beoptimized.nl
+
+File Name    : catalog/controller/common/seo_url.php(4)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-23 12:38:04 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /desktops/mac
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/beop_all_clean_urls.xml
+   id        : Clean Urls
+   version   : 1.0.7
+   vqmver    : 2.1
+   author    : Werner van Run - beoptimized.nl
+
+File Name    : catalog/controller/common/seo_url.php(4)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-23 12:38:10 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /desktops
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/beop_all_clean_urls.xml
+   id        : Clean Urls
+   version   : 1.0.7
+   vqmver    : 2.1
+   author    : Werner van Run - beoptimized.nl
+
+File Name    : catalog/controller/common/seo_url.php(4)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-23 12:39:14 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /desktops
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/beop_all_clean_urls.xml
+   id        : Clean Urls
+   version   : 1.0.7
+   vqmver    : 2.1
+   author    : Werner van Run - beoptimized.nl
+
+File Name    : catalog/controller/common/seo_url.php(4)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-23 12:39:18 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=common/home
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/beop_all_clean_urls.xml
+   id        : Clean Urls
+   version   : 1.0.7
+   vqmver    : 2.1
+   author    : Werner van Run - beoptimized.nl
+
+File Name    : catalog/controller/common/seo_url.php(4)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-23 12:39:29 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /desktops
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/beop_all_clean_urls.xml
+   id        : Clean Urls
+   version   : 1.0.7
+   vqmver    : 2.1
+   author    : Werner van Run - beoptimized.nl
+
+File Name    : catalog/controller/common/seo_url.php(4)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-23 12:39:38 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /desktops/ipod_classic
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/beop_all_clean_urls.xml
+   id        : Clean Urls
+   version   : 1.0.7
+   vqmver    : 2.1
+   author    : Werner van Run - beoptimized.nl
+
+File Name    : catalog/controller/common/seo_url.php(4)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-23 12:39:38 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=product/product/captcha
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/beop_all_clean_urls.xml
+   id        : Clean Urls
+   version   : 1.0.7
+   vqmver    : 2.1
+   author    : Werner van Run - beoptimized.nl
+
+File Name    : catalog/controller/common/seo_url.php(4)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-23 12:39:38 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=product/product/review&amp;product_id=48
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/beop_all_clean_urls.xml
+   id        : Clean Urls
+   version   : 1.0.7
+   vqmver    : 2.1
+   author    : Werner van Run - beoptimized.nl
+
+File Name    : catalog/controller/common/seo_url.php(4)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-23 12:39:43 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /desktops
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/beop_all_clean_urls.xml
+   id        : Clean Urls
+   version   : 1.0.7
+   vqmver    : 2.1
+   author    : Werner van Run - beoptimized.nl
+
+File Name    : catalog/controller/common/seo_url.php(4)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-23 12:40:45 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /desktops
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/beop_all_clean_urls.xml
+   id        : Clean Urls
+   version   : 1.0.7
+   vqmver    : 2.1
+   author    : Werner van Run - beoptimized.nl
+
+File Name    : catalog/controller/common/seo_url.php(4)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-23 12:41:12 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /desktops/test
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/beop_all_clean_urls.xml
+   id        : Clean Urls
+   version   : 1.0.7
+   vqmver    : 2.1
+   author    : Werner van Run - beoptimized.nl
+
+File Name    : catalog/controller/common/seo_url.php(4)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-23 12:41:13 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=product/product/captcha
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/beop_all_clean_urls.xml
+   id        : Clean Urls
+   version   : 1.0.7
+   vqmver    : 2.1
+   author    : Werner van Run - beoptimized.nl
+
+File Name    : catalog/controller/common/seo_url.php(4)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-23 12:41:13 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=product/product/review&amp;product_id=42
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/beop_all_clean_urls.xml
+   id        : Clean Urls
+   version   : 1.0.7
+   vqmver    : 2.1
+   author    : Werner van Run - beoptimized.nl
+
+File Name    : catalog/controller/common/seo_url.php(4)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-23 12:41:14 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=common/home
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/beop_all_clean_urls.xml
+   id        : Clean Urls
+   version   : 1.0.7
+   vqmver    : 2.1
+   author    : Werner van Run - beoptimized.nl
+
+File Name    : catalog/controller/common/seo_url.php(4)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+----------------------------------------------------------------------
+
+
+---------- Date: 2017-10-23 12:41:17 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /desktops
+MOD DETAILS:
+   modFile   : F:\WWW\ocv1564\vqmod/xml/beop_all_clean_urls.xml
+   id        : Clean Urls
+   version   : 1.0.7
+   vqmver    : 2.1
+   author    : Werner van Run - beoptimized.nl
+
+File Name    : catalog/controller/common/seo_url.php(4)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): $url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+----------------------------------------------------------------------
+
+

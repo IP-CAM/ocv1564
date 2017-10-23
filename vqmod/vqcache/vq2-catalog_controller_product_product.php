@@ -165,6 +165,45 @@ class ControllerProductProduct extends Controller {
 		$product_info = $this->model_catalog_product->getProduct($product_id);
 
 		if ($product_info) {
+
+        if(!isset($category_info)) {
+          $categories = $this->model_catalog_product->getCategoriesByProductId($this->request->get['product_id']);
+          if($categories) {
+            foreach($categories as $category){
+              $path = $this->getPath($category['category_id']);
+              $category_info = $this->model_catalog_category->getCategory($category['category_id']);
+              if($path){
+                $cat_path = $path;
+              }else{
+                $cat_path = $category_info['category_id'];
+              }
+
+              if($category_info) {
+                $path = '';
+                foreach (explode('_', $cat_path) as $path_id) {
+                  if (!$path) {
+                    $path = $path_id;
+                  } else {
+                    $path .= '_' . $path_id;
+                  }
+
+                  $category_info = $this->model_catalog_category->getCategory($path_id);
+
+                  if ($category_info) {
+                    $this->data['breadcrumbs'][] = array(
+                      'text'      => $category_info['name'],
+                      'href'      => $this->url->link('product/category', '&path=' . $path),
+                      'separator' => $this->language->get('text_separator')
+                    );
+                  }
+                }
+                break;
+              }
+
+            }
+          }
+        }
+      
 			$url = '';
 
 			if (isset($this->request->get['path'])) {
@@ -316,6 +355,8 @@ class ControllerProductProduct extends Controller {
 			$this->data['model'] = $product_info['model'];
 			$this->data['reward'] = $product_info['reward'];
 			$this->data['points'] = $product_info['points'];
+
+            $this->data['shopping_cart'] = $this->url->link('checkout/cart');
 
 			if ($product_info['quantity'] <= 0) {
 				$this->data['stock'] = $product_info['stock_status'];
@@ -751,6 +792,27 @@ class ControllerProductProduct extends Controller {
 		$captcha->showImage();
 	}
 
+
+        protected function getPath($parent_id, $current_path = '') {
+					$category_info = $this->model_catalog_category->getCategory($parent_id);
+				
+					if ($category_info) {
+						if (!$current_path) {
+							$new_path = $category_info['category_id'];
+						} else {
+							$new_path = $category_info['category_id'] . '_' . $current_path;
+						}	
+					
+						$path = $this->getPath($category_info['parent_id'], $new_path);
+								
+						if ($path) {
+							return $path;
+						} else {
+							return $new_path;
+						}
+					}
+				}
+      
 	public function upload() {
 		$this->language->load('product/product');
 

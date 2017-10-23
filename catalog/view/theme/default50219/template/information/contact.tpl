@@ -5,28 +5,9 @@
     <?php echo $breadcrumb['separator']; ?><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
     <?php } ?>
   </div>
-  <h1><?php echo $heading_title; ?></h1>
   <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
-    <h2><?php echo $text_location; ?></h2>
-    <div class="contact-info">
-      <div class="content"><div class="left"><b><?php echo $text_address; ?></b><br />
-        <?php echo $store; ?><br />
-        <?php echo $address; ?></div>
-      <div class="right">
-        <?php if ($telephone) { ?>
-        <b><?php echo $text_telephone; ?></b><br />
-        <?php echo $telephone; ?><br />
-        <br />
-        <?php } ?>
-        <?php if ($fax) { ?>
-        <b><?php echo $text_fax; ?></b><br />
-        <?php echo $fax; ?>
-        <?php } ?>
-      </div>
-    </div>
-    </div>
-    <h2><?php echo $text_contact; ?></h2>
     <div class="content">
+    <h1><?php echo $heading_title; ?></h1>
     <b><?php echo $entry_name; ?></b><br />
     <input type="text" name="name" value="<?php echo $name; ?>" />
     <br />
