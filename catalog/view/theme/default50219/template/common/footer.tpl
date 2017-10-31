@@ -14,7 +14,7 @@
     <ul>
       <li><a rel="nofollow" href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
       <li><a rel="nofollow" href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>
-      <li><a rel="nofollow" href="<?php echo $sitemap; ?>"><?php echo $text_sitemap; ?></a></li>
+      <li><a href="<?php echo $sitemap; ?>"><?php echo $text_sitemap; ?></a></li>
     </ul>
   </div>
   <div class="column">
@@ -23,7 +23,7 @@
       <li><a rel="nofollow" href="<?php echo $manufacturer; ?>"><?php echo $text_manufacturer; ?></a></li>
       <li><a rel="nofollow" href="<?php echo $voucher; ?>"><?php echo $text_voucher; ?></a></li>
       <li><a rel="nofollow" href="<?php echo $affiliate; ?>"><?php echo $text_affiliate; ?></a></li>
-      <li><a rel="nofollow" href="<?php echo $special; ?>"><?php echo $text_special; ?></a></li>
+      <li><a href="<?php echo $special; ?>"><?php echo $text_special; ?></a></li>
     </ul>
   </div>
   <div class="column">
